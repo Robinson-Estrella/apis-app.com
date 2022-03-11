@@ -5,6 +5,7 @@ namespace App\Models\v1;
 use Illuminate\Database\Eloquent\Model;
 use BinaryCabin\LaravelUUID\Traits\HasUUID;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\v1\Categoria;
  
 class Producto extends Model
 {
@@ -17,4 +18,8 @@ class Producto extends Model
     public $incrementing = false;
     protected $keyType = 'string';
     protected $uuidFieldName = 'id';
+
+    function categoria(){
+        return $this->belongsTo(Categoria::class, "categoria_id");
+    }
 }
