@@ -18,6 +18,12 @@ class Categoria extends Model
   protected $keyType = 'string';
   protected $uuidFieldName = 'id';
 
+  //protected $hidden = [
+    //'created_at',
+    //'updated_at',
+    //'deleted_at',
+  //];
+
   public function productos(){
     return $this->hasMany(Producto::class, "categoria_id");
   }

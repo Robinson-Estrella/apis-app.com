@@ -34,7 +34,6 @@ class ProductosController extends Controller
         if($producto){
             $producto->codigo= $request->codigo;
             $producto->nombre= $request->nombre;
-            $producto->categoria_id= $request->categoria_id;
             $producto->save();
         }
  
@@ -70,7 +69,6 @@ class ProductosController extends Controller
         $producto = new Producto();
         $producto->codigo = $request->codigo;
         $producto->nombre = $request->nombre;
-        $producto->categoria_id = $request->categoria_id;
         $producto->save();
 
         $response = new \stdClass();
