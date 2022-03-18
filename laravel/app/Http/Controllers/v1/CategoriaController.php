@@ -10,7 +10,9 @@ class CategoriaController extends Controller
 {
   //Lista de categorias
   function obtenerLista(){
-    $categorias = Categoria::all();
+    $categorias = Categoria::where("nombre","like","%")
+                  ->orderBy("nombre","asc")
+                  ->get();
 
     $response = new \stdClass();
     $response->success=true;
