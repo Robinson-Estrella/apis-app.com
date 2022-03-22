@@ -10,15 +10,25 @@ use GrahamCampbell\ResultType\Success;
 class ProductoController extends Controller
 {
   //Lista de productos
-  function obtenerLista(){
-    $productos = Producto::with('categoria')->get();
+  function obtenerLista()
+    {
+        $productos = Producto::all();
 
-    $response = new \stdClass();
-    $response->success=true;
-    $response->data=$productos;
+        $response = new \stdClass();
+        $response->success=true;
+        $response->data=$productos;
 
-    return response()->json($response, 200);
-  }
+        return response()->json($response,200);
+    }
+  // function obtenerLista(){
+  //   $productos = Producto::with('categoria')->get();
+
+  //   $response = new \stdClass();
+  //   $response->success=true;
+  //   $response->data=$productos;
+
+  //   return response()->json($response, 200);
+  // }
 
   function obtenerItem($id){
     $producto = Producto::where("id","=",$id)->with('categoria')->get()->find($id);;

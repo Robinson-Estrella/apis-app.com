@@ -8,33 +8,33 @@ use App\Models\User;
 
 class SeguridadController extends Controller
 {
-    function login(Request $request){
+    // function login(Request $request){
 
-        $response = new \stdClass();
-        $response_code = 0;
+    //     $response = new \stdClass();
+    //     $response_code = 0;
 
-        $email = $request->email;
-        $password = $request->password;
+    //     $email = $request->email;
+    //     $password = $request->password;
 
-        $user = User::where("email","=",$request->email)
-                    ->where("password","=", $password)
-                    ->first();
+    //     $user = User::where("email","=",$request->email)
+    //                 ->where("password","=", $password)
+    //                 ->first();
 
-        if($user){
+    //     if($user){
 
-            $token=$user->createToken('Laravel Password Grant Client')->accessToken;
-            $response->success=true;
-            $response_code=200;
+    //         $token=$user->createToken('Laravel Password Grant Client')->accessToken;
+    //         $response->success=true;
+    //         $response_code=200;
 
-            $response->data=new \stdClass();
-            $response->data->token = $token;
-        }else{
-            $response->success=false;
-            $response_code=404;
-            $response->errors=[];
-            $response->errors[]="Usuario y/o contraseña incorrectos";
+    //         $response->data=new \stdClass();
+    //         $response->data->token = $token;
+    //     }else{
+    //         $response->success=false;
+    //         $response_code=404;
+    //         $response->errors=[];
+    //         $response->errors[]="Usuario y/o contraseña incorrectos";
             
-        }
-        return response()->json($response, $response_code);
-    }
+    //     }
+    //     return response()->json($response, $response_code);
+    // }
 }

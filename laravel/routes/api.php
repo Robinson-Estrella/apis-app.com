@@ -11,7 +11,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('auth:api')->group(function(){
+//Route::middleware('auth:api')->group(function(){
     Route::get('/productos', [ProductoController::class, 'obtenerLista']);
     Route::get('/productos/{id}', [ProductoController::class, 'obtenerItem']);
     Route::post('/productos', [ProductoController::class, 'store']);
@@ -26,7 +26,6 @@ Route::middleware('auth:api')->group(function(){
     Route::patch('/categorias', [CategoriaController::class, 'patch']);
     Route::delete('/categorias/{id}', [CategoriaController::class, 'delete']);
     
-    Route::post('/users', [UserController::class, 'store']);
-    
-});
-Route::post('/seguridad/login', [SeguridadController::class, 'login']);
+    Route::post('/users', [UserController::class, 'store']);    
+//});
+//Route::post('/seguridad/login', [SeguridadController::class, 'login']);
